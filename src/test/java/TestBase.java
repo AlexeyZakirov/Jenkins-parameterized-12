@@ -14,7 +14,6 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void setUp() {
-        String remoteUrl = System.getProperty("remoteUrl");
         Configuration.browser = System.getProperty("browser","chrome");
         Configuration.browserVersion = System.getProperty("version");
         Configuration.browserSize = System.getProperty("browserSize");
@@ -26,8 +25,7 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-//        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-        Configuration.remote = String.format("https://user1:1234@%s/wd/hub", remoteUrl);
+        Configuration.remote = String.format("https://user1:1234@%s/wd/hub", System.getProperty("remoteUrl"));
 
 
     }

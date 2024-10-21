@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static java.lang.System.getProperty;
 import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
@@ -36,8 +37,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl(){
-        String remoteUrl = System.getProperty("remoteUrl");
-        String videoUrl = "https://" + remoteUrl + "/video/" + sessionId() + ".mp4";
+        String videoUrl =String.format("https://%s/video/%s.mp4", getProperty("remoteUrl"), sessionId());
         try {
             return new URL(videoUrl);
         } catch (MalformedURLException e) {
