@@ -15,8 +15,8 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         Configuration.browser = System.getProperty("browser","chrome");
-        Configuration.browserVersion = "122.0";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserVersion = System.getProperty("version");
+        Configuration.browserSize = System.getProperty("browserSize");
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         DesiredCapabilities capabilities = new DesiredCapabilities();
