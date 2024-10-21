@@ -14,7 +14,7 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void setUp() {
-        Configuration.browser = "firefox";
+        Configuration.browser = System.getProperty("browser","chrome");
         Configuration.browserVersion = "122.0";
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
