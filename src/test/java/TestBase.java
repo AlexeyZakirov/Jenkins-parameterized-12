@@ -25,7 +25,7 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = String.format("https://user1:1234@%s/wd/hub", System.getProperty("remoteUrl"));
+        Configuration.remote = String.format("https://%s@%s/wd/hub", System.getProperty("auth"), System.getProperty("remoteUrl"));
 
 
     }
